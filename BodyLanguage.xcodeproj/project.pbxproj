@@ -11,6 +11,8 @@
 		5F6140CB1CE559F6008B288C /* BodyLanguage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6140C01CE559F6008B288C /* BodyLanguage.framework */; };
 		5F6140D01CE559F6008B288C /* BodyLanguageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6140CF1CE559F6008B288C /* BodyLanguageTests.m */; };
 		5F6140DF1CE55C08008B288C /* libgrt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6140DE1CE55C08008B288C /* libgrt.a */; };
+		5F6140E31CE55D97008B288C /* MPClusterTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6140E11CE55D96008B288C /* MPClusterTree.h */; };
+		5F6140E41CE55D97008B288C /* MPClusterTree.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5F6140E21CE55D96008B288C /* MPClusterTree.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		5F6140CF1CE559F6008B288C /* BodyLanguageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BodyLanguageTests.m; sourceTree = "<group>"; };
 		5F6140D11CE559F6008B288C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F6140DE1CE55C08008B288C /* libgrt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrt.a; sourceTree = "<group>"; };
+		5F6140E11CE55D96008B288C /* MPClusterTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPClusterTree.h; sourceTree = "<group>"; };
+		5F6140E21CE55D96008B288C /* MPClusterTree.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MPClusterTree.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 			children = (
 				5F6140C31CE559F6008B288C /* BodyLanguage.h */,
 				5F6140C51CE559F6008B288C /* Info.plist */,
+				5F6140E11CE55D96008B288C /* MPClusterTree.h */,
+				5F6140E21CE55D96008B288C /* MPClusterTree.mm */,
 			);
 			path = BodyLanguage;
 			sourceTree = "<group>";
@@ -117,6 +123,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F6140E31CE55D97008B288C /* MPClusterTree.h in Headers */,
 				5F6140C41CE559F6008B288C /* BodyLanguage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F6140E41CE55D97008B288C /* MPClusterTree.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = $SRCROOT/Include;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -319,6 +328,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = $SRCROOT/Include;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
