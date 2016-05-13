@@ -11,8 +11,10 @@
 		5F6140CB1CE559F6008B288C /* BodyLanguage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6140C01CE559F6008B288C /* BodyLanguage.framework */; };
 		5F6140D01CE559F6008B288C /* BodyLanguageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6140CF1CE559F6008B288C /* BodyLanguageTests.m */; };
 		5F6140DF1CE55C08008B288C /* libgrt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6140DE1CE55C08008B288C /* libgrt.a */; };
-		5F6140E31CE55D97008B288C /* MPClusterTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6140E11CE55D96008B288C /* MPClusterTree.h */; };
+		5F6140E31CE55D97008B288C /* MPClusterTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6140E11CE55D96008B288C /* MPClusterTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F6140E41CE55D97008B288C /* MPClusterTree.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5F6140E21CE55D96008B288C /* MPClusterTree.mm */; };
+		5FD2BBDF1CE67AA600FC57A4 /* BodyLanguage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6140C01CE559F6008B288C /* BodyLanguage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5FD2BBE71CE69C9900FC57A4 /* ClusterTreeData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5FD2BBE61CE69C9900FC57A4 /* ClusterTreeData.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5FD2BBDE1CE67A9C00FC57A4 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5FD2BBDF1CE67AA600FC57A4 /* BodyLanguage.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +60,7 @@
 		5F6140DE1CE55C08008B288C /* libgrt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrt.a; sourceTree = "<group>"; };
 		5F6140E11CE55D96008B288C /* MPClusterTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPClusterTree.h; sourceTree = "<group>"; };
 		5F6140E21CE55D96008B288C /* MPClusterTree.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MPClusterTree.mm; sourceTree = "<group>"; };
+		5FD2BBE61CE69C9900FC57A4 /* ClusterTreeData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ClusterTreeData.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +116,7 @@
 		5F6140CE1CE559F6008B288C /* BodyLanguageTests */ = {
 			isa = PBXGroup;
 			children = (
+				5FD2BBE61CE69C9900FC57A4 /* ClusterTreeData.csv */,
 				5F6140CF1CE559F6008B288C /* BodyLanguageTests.m */,
 				5F6140D11CE559F6008B288C /* Info.plist */,
 			);
@@ -157,6 +172,7 @@
 				5F6140C61CE559F6008B288C /* Sources */,
 				5F6140C71CE559F6008B288C /* Frameworks */,
 				5F6140C81CE559F6008B288C /* Resources */,
+				5FD2BBDE1CE67A9C00FC57A4 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FD2BBE71CE69C9900FC57A4 /* ClusterTreeData.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +439,7 @@
 				5F6140D61CE559F6008B288C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5F6140D71CE559F6008B288C /* Build configuration list for PBXNativeTarget "BodyLanguageTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +448,7 @@
 				5F6140D91CE559F6008B288C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

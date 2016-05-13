@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *_Nonnull const MPClusterTreeErrorDomain;
+
+typedef NS_ENUM(NSUInteger, MPClusterTreeErrorCode) {
+    MPClusterTreeErrorCodeFailedToLoad = 1
+};
+
 @interface MPClusterTree : NSObject
+
+- (BOOL)trainWithContentsOfURL:(nonnull NSURL *)URL error:(NSError *_Nullable *_Nullable)error;
 
 @end

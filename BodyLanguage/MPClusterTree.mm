@@ -12,14 +12,19 @@ using namespace std;
 
 #import "MPClusterTree.h"
 
+NSString *const MPClusterTreeErrorDomain = @"MPClusterTreeErrorDomain";
+
 @implementation MPClusterTree
 
-- (void)foo {
-    //Load some training data to train the ClusterTree model
+- (BOOL)trainWithContentsOfURL:(NSURL *)URL error:(NSError **)error {
     MatrixDouble trainingData;
-    if (!trainingData.loadFromCSVFile("ClusterTreeData.csv")) {
-        NSLog(@"Failed to load training data!");
-        return;
+    
+    if (!trainingData.loadFromCSVFile(URL.path.UTF8String)) {
+        if (error)
+            *error = [NSError errorWithDomain:MPClusterTreeErrorDomain
+                                         code:MPClusterTreeErrorCodeFailedToLoad
+                                     userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"Failed to load contents of URL %@", URL]}];
+        return NO;
     }
     
     //Create a new ClusterTree instance
@@ -38,7 +43,9 @@ using namespace std;
     //Set the minimum RMS error allowed per node
     ctree.setMinRMSErrorPerNode(0.1);
     
-    ctree.print()
+    ctree.print();
+    
+    return YES;
 }
 
 @end
