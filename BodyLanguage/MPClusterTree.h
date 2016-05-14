@@ -11,7 +11,10 @@
 extern NSString *_Nonnull const MPClusterTreeErrorDomain;
 
 typedef NS_ENUM(NSUInteger, MPClusterTreeErrorCode) {
-    MPClusterTreeErrorCodeFailedToLoad = 1
+    MPClusterTreeErrorCodeLoadingTrainingDataFailed = 1,
+    MPClusterTreeErrorCodeTrainingFailed = 2,
+    MPClusterTreeErrorCodeSerializingModelFailed = 3,
+    MPClusterTreeErrorCodeDeserializingModelFailed = 4
 };
 
 @interface MPClusterTree : NSObject

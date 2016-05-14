@@ -22,7 +22,7 @@ NSString *const MPClusterTreeErrorDomain = @"MPClusterTreeErrorDomain";
     if (!trainingData.loadFromCSVFile(URL.path.UTF8String)) {
         if (error)
             *error = [NSError errorWithDomain:MPClusterTreeErrorDomain
-                                         code:MPClusterTreeErrorCodeFailedToLoad
+                                         code:MPClusterTreeErrorCodeLoadingTrainingDataFailed
                                      userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"Failed to load contents of URL %@", URL]}];
         return NO;
     }
@@ -35,13 +35,44 @@ NSString *const MPClusterTreeErrorDomain = @"MPClusterTreeErrorDomain";
     ctree.setNumSplittingSteps(100);
     
     //Set the maximum depth of the tree
-    ctree.setMaxDepth(10);
+    ctree.setMaxDepth(20);
     
     //Set the minimum number of samples allowed per node
     ctree.setMinNumSamplesPerNode(10);
     
     //Set the minimum RMS error allowed per node
-    ctree.setMinRMSErrorPerNode(0.1);
+    ctree.setMinRMSErrorPerNode(0.5);
+    
+    // Train a cluster tree model
+    if (!ctree.train(trainingData)) {
+        NSLog(@"Failed to train model");
+        if (error) {
+            *error = [NSError errorWithDomain:MPClusterTreeErrorDomain
+                                         code:MPClusterTreeErrorCodeTrainingFailed
+                                     userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"Failed to load contents of URL %@", URL]}];
+        }
+        return NO;
+    }
+    
+    if (!ctree.saveModelToFile("Model.grt")) {
+        NSLog(@"Failed to train model");
+        if (error) {
+            *error = [NSError errorWithDomain:MPClusterTreeErrorDomain
+                                         code:MPClusterTreeErrorCodeSerializingModelFailed
+                                     userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"Failed to serialize model to URL %@", URL]}];
+        }
+        return NO;
+    }
+    
+    if (!ctree.loadModelFromFile("Model.grt")) {
+        NSLog(@"Failed to load model");
+        if (error) {
+            *error = [NSError errorWithDomain:MPClusterTreeErrorDomain
+                                         code:MPClusterTreeErrorCodeDeserializingModelFailed
+                                     userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"Failed to deserialize model from URL %@", URL]}];
+        }
+        return NO;
+    }
     
     ctree.print();
     
